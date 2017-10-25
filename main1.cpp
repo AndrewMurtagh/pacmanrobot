@@ -28,8 +28,8 @@ int main() {
     map.showGrid(false);
 
     PacmanRobot pacman(PacmanMap::MAZE, map);
-    pacman.setLinearSpeed(3);
-    pacman.setAngularSpeed(2);
+    pacman.setLinearSpeed(4.5f);
+    pacman.setAngularSpeed(3.7f);
     ////////////////////////////////////////////////////////
     ////////////////    ENTER CODE ABOVE    ////////////////
     ////////////////////////////////////////////////////////
