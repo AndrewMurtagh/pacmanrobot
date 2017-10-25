@@ -73,6 +73,19 @@ int main() {
         }
 
 
+        
+		if (Keyboard::isKeyPressed(Keyboard::D)){
+		    clock_started = true; // NO NEED TO TOUCH THIS
+		    
+		    if(pacman.getLeftSensor() > pacman.getRightSensor()) {
+		        pacman.turnLeft();
+		    } else {
+		        pacman.turnRight();
+		    }
+		    pacman.moveForward();
+		}
+
+
 
         if(map.robotIsAtGoal(pacman.getPose())) {
             goal_reached = true;
