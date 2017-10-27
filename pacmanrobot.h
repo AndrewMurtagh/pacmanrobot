@@ -10,7 +10,7 @@
 
 class PacmanRobot {
 public:
-	PacmanRobot(PacmanMap::session_e, const PacmanMap&);
+	PacmanRobot(const PacmanMap&);
 	~PacmanRobot();
 
 	void turnLeft();
@@ -20,11 +20,17 @@ public:
 	float getFrontSensor();
 	float getLeftSensor();
 	float getRightSensor();
+	void terminate();
 	sf::Vector3f getPose();
 	void setLinearSpeed(float);
 	float getLinearSpeed() const;
 	void setAngularSpeed(float);
 	float getAngularSpeed() const;
+	inline void setMaxSensorDistance(const float d) { max_distance = d; }
+	inline float getMaxSensorDistance() const { return max_distance; }
+	float getAngleToGoal();
+	float getDistanceToGoal(); 
+	bool isAtGoal();
 
 	
 	void toggleSensors();
@@ -38,12 +44,13 @@ private:
     sf::Vector3f pose;
     float speed;
     float ang_speed;
+    bool over_;
 
     const PacmanMap& map;
 
     float sensor_distances[3];
     bool show_sensors;
-    static const float max_distance = 125.f;
+    float max_distance;
 
 };
 
